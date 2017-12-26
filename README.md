@@ -1,11 +1,27 @@
 # vue-scroll-stop
 
 A mini Vue directive that stop propagation scroll to parent when scrolling block reach top or bottom.
+Works with desktop `mousewheel` and mobile `touchmove` events
 
 ## Installation
 
 ```js
 npm i --save vue-scroll-stop
+```
+
+### Import
+In main.js:
+```html
+import Vue from 'vue'
+import VueScrollStop from 'vue-scroll-stop'
+import App from './App.vue'
+ 
+Vue.use(VueScrollStop)
+ 
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
 ```
 
 ### Browser
@@ -22,8 +38,11 @@ Include the script file, then install the component with `Vue.use(VueScrollStop)
 
 ## Usage
 
-Once installed, it can be used in a template as simply as:
-
+Once installed, it can be used in a template as simply:
 ```html
 <div v-scroll-stop></div>
+```
+By default directive works on both direction but you can strict it by using modifier v (vertical) or h (horizontal) 
+```html
+<div v-scroll-stop.v></div> /* Works only for horizontal scroll */
 ```
