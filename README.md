@@ -44,5 +44,5 @@ Once installed, it can be used in a template as simply:
 ```
 By default directive works on both direction but you can strict it by using modifier v (vertical) or h (horizontal) 
 ```html
-<div v-scroll-stop.v></div> /* Works only for horizontal scroll */
+<div v-scroll-stop.v></div>  <!-- Works only for horizontal scroll -->
 ```
