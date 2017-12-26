@@ -5,13 +5,13 @@ Works with desktop `mousewheel` and mobile `touchmove` events
 
 ## Installation
 
-```js
+```javascript
 npm i --save vue-scroll-stop
 ```
 
 ### Import
 In main.js:
-```html
+```javascript
 import Vue from 'vue'
 import VueScrollStop from 'vue-scroll-stop'
 import App from './App.vue'
