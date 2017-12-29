@@ -47,7 +47,7 @@ By default directive works on both direction but you can strict it by using modi
 <div v-scroll-stop.h></div>  <!-- Works only for horizontal scroll -->
 ```
 
-You can pass `false` as value to disable directive dynamically
+You can pass `false` as value to disable directive reactive
 ```html
 <div v-scroll-stop.h="false"></div> <!-- Directive disabled -->
 ```
