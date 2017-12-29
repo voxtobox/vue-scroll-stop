@@ -1,6 +1,6 @@
 {
   "name": "vue-scroll-stop",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A tiny Vue.js directive that stop propagation scroll to parent when scrolling block reach top or bottom.",
   "main": "dist/vue-scroll-stop.js",
   "scripts": {

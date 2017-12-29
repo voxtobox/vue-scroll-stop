@@ -79,18 +79,36 @@ const onTouchStart = function(e) {
     lastTouchMove = { clientX, clientY };
 };
 
+const addEventListeners = function() {
+    elem.addEventListener('mousewheel', onScrolling);
+    elem.addEventListener('touchmove', onScrolling);
+    elem.addEventListener('touchstart', onTouchStart);
+};
+
+const removeEventListeners = function() {
+    elem.removeEventListener('mousewheel', onScrolling);
+    elem.removeEventListener('touchmove', onScrolling);
+    elem.removeEventListener('touchstart', onTouchStart);
+};
+
 // Directive
 export default {
     bind(el, binding) {
         elem = el;
         modifiers = binding.modifiers;
-        el.addEventListener('mousewheel', onScrolling);
-        el.addEventListener('touchmove', onScrolling);
-        el.addEventListener('touchstart', onTouchStart);
+
+        if (binding.value !== false) {
+            addEventListeners();
+        }
+    },
+    update(el, binding) {
+        if (binding.value !== false) {
+            addEventListener();
+        } else {
+            removeEventListeners();
+        }
     },
     unbind(el, binding) {
-        el.removeEventListener('mousewheel', onScrolling);
-        el.removeEventListener('touchmove', onScrolling);
-        el.removeEventListener('touchstart', onTouchStart);
+        removeEventListener();
     },
 };
