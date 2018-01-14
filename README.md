@@ -1,6 +1,6 @@
 # vue-scroll-stop
 
-A mini Vue directive that stop propagation scroll to parent when scrolling reach edge.
+A tiny Vue directive that stop propagation scroll when edge reached.
 Works with desktop `mousewheel` and mobile `touchmove` events
 
 ## Installation
