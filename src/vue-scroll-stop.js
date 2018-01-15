@@ -79,13 +79,13 @@ const onTouchStart = function(e) {
     lastTouchMove = { clientX, clientY };
 };
 
-const addEventListeners = function() {
+const _addEventListeners = function() {
     elem.addEventListener('mousewheel', onScrolling);
     elem.addEventListener('touchmove', onScrolling);
     elem.addEventListener('touchstart', onTouchStart);
 };
 
-const removeEventListeners = function() {
+const _removeEventListeners = function() {
     elem.removeEventListener('mousewheel', onScrolling);
     elem.removeEventListener('touchmove', onScrolling);
     elem.removeEventListener('touchstart', onTouchStart);
@@ -98,17 +98,17 @@ export default {
         modifiers = binding.modifiers;
 
         if (binding.value !== false) {
-            addEventListeners();
+            _addEventListeners();
         }
     },
     update(el, binding) {
         if (binding.value !== false) {
-            addEventListener();
+            _addEventListeners();
         } else {
-            removeEventListeners();
+            _removeEventListeners();
         }
     },
     unbind(el, binding) {
-        removeEventListener();
+        _removeEventListeners();
     },
 };
