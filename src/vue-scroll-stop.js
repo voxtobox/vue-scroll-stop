@@ -2,21 +2,6 @@
 let elem, lastTouchMove, modifiers = {};
 
 /**
- * Get dimensions of container
- * @returns {{height: Number, width: Number, scrollHeight: (*|number), scrollWidth: (*|number)}}
- */
-const getDimensions = function() {
-    const style = getComputedStyle(elem);
-
-    return {
-        height: parseInt(style.height),
-        width: parseInt(style.width),
-        scrollHeight: elem.scrollHeight,
-        scrollWidth: elem.scrollWidth
-    }
-};
-
-/**
  * Get scroll delta for x and y axios
  * @param e
  * @returns {{deltaX: number, deltaY: number}}
@@ -43,23 +28,30 @@ const getDeltas = function(e) {
  * @param e
  */
 const onScrolling = function(e) {
-    const { height, width, scrollHeight, scrollWidth } = getDimensions();
+    const {
+        clientHeight: height,
+        clientWidth: width,
+        scrollHeight,
+        scrollWidth,
+        scrollTop,
+        scrollLeft
+    } = elem;
     let { deltaY = 0 , deltaX = 0 } = getDeltas(e);
 
 
     if (Math.abs(deltaY) > Math.abs(deltaX)) {
         if (
             (modifiers.v || !modifiers.h) &&
-            ((deltaY >= 0 && elem.scrollTop === (scrollHeight - height)) ||
-            (deltaY <= 0 && elem.scrollTop === 0))
+            ((deltaY >= 0 && (scrollHeight - scrollTop) === height) ||
+            (deltaY <= 0 && scrollTop === 0))
         ) {
             e.preventDefault();
         }
     } else {
         if (
             (modifiers.h || !modifiers.v) &&
-            ((deltaX >= 0 && elem.scrollLeft === (scrollWidth - width)) ||
-            (deltaX <= 0 && elem.scrollLeft === 0))
+            ((deltaX >= 0 && (scrollWidth  - scrollLeft) === width) ||
+            (deltaX <= 0 && scrollLeft === 0))
         ) {
             e.preventDefault();
         }
