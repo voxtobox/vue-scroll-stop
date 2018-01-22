@@ -3,6 +3,13 @@
 A tiny Vue directive that stop propagation scroll when edge reached.
 Works with desktop `mousewheel` and mobile `touchmove` events
 
+On :white_check_mark:
+![screenshot](vue-scroll-stop-on.gif)
+
+Off :x:
+![screenshot](vue-scroll-stop-off.gif)
+
+
 ## Installation
 
 ```javascript
