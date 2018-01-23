@@ -72,13 +72,13 @@ const onTouchStart = function(e) {
 };
 
 const _addEventListeners = function() {
-    elem.addEventListener('mousewheel', onScrolling);
+    elem.addEventListener('wheel', onScrolling);
     elem.addEventListener('touchmove', onScrolling);
     elem.addEventListener('touchstart', onTouchStart);
 };
 
 const _removeEventListeners = function() {
-    elem.removeEventListener('mousewheel', onScrolling);
+    elem.removeEventListener('wheel', onScrolling);
     elem.removeEventListener('touchmove', onScrolling);
     elem.removeEventListener('touchstart', onTouchStart);
 };
